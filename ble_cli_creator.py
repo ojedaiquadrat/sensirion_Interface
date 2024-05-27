@@ -16,12 +16,16 @@ async def connect_and_read_data():
         
         while bleSensorClient.is_connected:  # Loop until connection is lost
           await read_sensor_data(bleSensorClient)
-          await asyncio.sleep(3)  # Adjustable delay
+          await asyncio.sleep(1)  # Adjustable delay
+        
+      
+          
 
     except Exception as e:
       print(f"Error connecting to sensor (attempt {attempt+1}): {e}")
       await asyncio.sleep(2)  # Wait before retrying
 
   if attempt == sensirion.MAX_RETRIES:
-    print(f"Failed to connect to sensor after {sensirion.MAX_RETRIES} retries.")
-    connected = False
+    print(f"Failed to connect to sensor after {sensirion.MAX_RETRIES + 1} retries.")
+    sensirion.connected = True
+    

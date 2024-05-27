@@ -58,3 +58,4 @@ async def read_sensor_data(bleSensorClient):
     environmental_Variables = getEnvVariables()
     print(environmental_Variables)
     
+    
