@@ -5,7 +5,7 @@ from sensor_data_handler import getEnvVariables, read_sensor_data
 
 
 
-async def main():
+async def intaking_s2_data():
   async for sensirion_data in connect_and_read_data(sensirion.sensor_mac_address_2):
     #sensirion_data is the variable to get the data     
     print(sensirion_data)
@@ -17,4 +17,4 @@ async def main():
   await asyncio.sleep(sensirion.DELAY_TIME)
    
 
-asyncio.run(main())
+asyncio.run(intaking_s2_data())
