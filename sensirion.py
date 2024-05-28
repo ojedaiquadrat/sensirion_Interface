@@ -1,5 +1,5 @@
 """
-This file defines constants and variables used throughout the script.
+This file defines constants and variables used throughout the scripts.
 """
 
 global connected
@@ -8,13 +8,11 @@ global scrapped_data
 
 # Define constants using all uppercase characters with underscores for separation
 MAX_RETRIES = 5  # Maximum number of retries for connecting to the sensor
-LOG_LEVEL = "INFO"  # Logging level (e.g., DEBUG, INFO, WARNING, ERROR)
 DELAY_TIME = 1
-SCAN_SENSOR_PERIOD = 3.0  # Scanning sensor data frame period in seconds
+SCAN_SENSOR_PERIOD = 10  # Scanning sensor data frame period in seconds
 
 # Define variables with descriptive names and potential initial values
 connected = False  # Flag to indicate sensor connection status
-topic_name = "sensirion_1"  # Kafka topic name for sensor data
 sensor_mac_address_2 = "E1:BE:94:7B:0D:70"  # Sensor's MAC address (replace with actual address)
 sensor_mac_address_3 = "F1:05:96:09:C9:5C"
 raw_sensor_dataframe = []
