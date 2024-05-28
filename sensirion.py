@@ -8,8 +8,9 @@ global scrapped_data
 
 # Define constants using all uppercase characters with underscores for separation
 MAX_RETRIES = 5  # Maximum number of retries for connecting to the sensor
-SCAN_SENSOR_PERIOD = 3.0  # Scanning sensor data frame period in seconds
 LOG_LEVEL = "INFO"  # Logging level (e.g., DEBUG, INFO, WARNING, ERROR)
+DELAY_TIME = 1
+SCAN_SENSOR_PERIOD = 3.0  # Scanning sensor data frame period in seconds
 
 # Define variables with descriptive names and potential initial values
 connected = False  # Flag to indicate sensor connection status

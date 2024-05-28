@@ -2,13 +2,13 @@ from bleak import BleakClient
 from sensor_data_handler import read_sensor_data
 import asyncio
 import sensirion
-
+import time
 #asynchronous generator
-async def connect_and_read_data():
+async def connect_and_read_data(sensor_mac_address):
   sensirion.connected
   for attempt in range(sensirion.MAX_RETRIES + 1):
     try:
-      async with BleakClient(sensirion.sensor_mac_address_2) as bleSensorClient:
+      async with BleakClient(sensor_mac_address) as bleSensorClient:
         print(f"Connection attempt {attempt}: {bleSensorClient.is_connected}")
         sensirion.connected = True
         print("The sensor is connected!")
@@ -16,12 +16,15 @@ async def connect_and_read_data():
         await bleSensorClient.write_gatt_char(sensirion.SERVICE_UUID_REQUESTED_SAMPLES, b"\x01\x00", response=False)
         
         while bleSensorClient.is_connected:  # Loop until connection is lost
+          start_time = time.time()
           sensirion.scrapped_data = await read_sensor_data(bleSensorClient)
           #print("ble", sensirion.scrapped_data)
           yield sensirion.scrapped_data
-          await asyncio.sleep(1)  # Adjustable delay
-          
-      
+          await asyncio.sleep(sensirion.DELAY_TIME)  # Adjustable delay
+          end_time = time.time()
+          scrapping_frequency = end_time - start_time
+          print("Scrapping frenquency: ", scrapping_frequency)
+       
           
 
     except Exception as e:
