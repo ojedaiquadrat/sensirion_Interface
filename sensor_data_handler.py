@@ -55,7 +55,7 @@ async def read_sensor_data(bleSensorClient):
     await bleSensorClient.start_notify(sensirion.SERVICE_UUID_DATA_TRANSFER, notification_handler)
     await asyncio.sleep(sensirion.SCAN_SENSOR_PERIOD)  # Simulate data reading (replace with actual code)
     await bleSensorClient.stop_notify(sensirion.SERVICE_UUID_DATA_TRANSFER)
-    environmental_Variables = getEnvVariables()
-    print(environmental_Variables)
-    
+    sensirion.scrapped_data = getEnvVariables()
+    #print(sensirion.scrapped_data)
+    return sensirion.scrapped_data
     
