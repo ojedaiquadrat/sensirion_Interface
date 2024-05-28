@@ -16,6 +16,7 @@ SCAN_SENSOR_PERIOD = 3.0  # Scanning sensor data frame period in seconds
 connected = False  # Flag to indicate sensor connection status
 topic_name = "sensirion_1"  # Kafka topic name for sensor data
 sensor_mac_address_2 = "E1:BE:94:7B:0D:70"  # Sensor's MAC address (replace with actual address)
+sensor_mac_address_3 = "F1:05:96:09:C9:5C"
 raw_sensor_dataframe = []
 scrapped_data = {}
 

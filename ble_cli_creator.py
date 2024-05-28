@@ -23,7 +23,8 @@ async def connect_and_read_data(sensor_mac_address):
           await asyncio.sleep(sensirion.DELAY_TIME)  # Adjustable delay
           end_time = time.time()
           scrapping_frequency = end_time - start_time
-          print("Scrapping frenquency: ", scrapping_frequency)
+          #check the frequency
+          #print("Scrapping frenquency: ", scrapping_frequency)
        
           
 
